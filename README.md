@@ -1,0 +1,1 @@
+This project contains some of the LeetCode solutions implemented by Scala.
