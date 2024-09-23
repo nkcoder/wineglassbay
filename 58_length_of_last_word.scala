@@ -1,5 +1,8 @@
 // https://leetcode.com/problems/length-of-last-word
 
+/**
+  * Run: scala-cli run 58_length_of_last_word.scala 
+  */
 object Solution {
   def lengthOfLastWord(s: String): Int = {
     var i = 0
