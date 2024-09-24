@@ -2,7 +2,7 @@
 
 /** Run: scala-cli run 58_length_of_last_word.scala
   */
-object Solution {
+object LengthOfLastWord {
   // scan from the beginning
   def lengthOfLastWord(s: String): Int = {
     var i = 0
