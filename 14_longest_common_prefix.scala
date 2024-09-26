@@ -1,6 +1,9 @@
 // https://leetcode.com/problems/longest-common-prefix
 
 object LongestCommonPrefix {
+
+  /** Compare each character of the first string with the rest of the strings
+    */
   def longestCommonPrefix(strs: Array[String]): String = {
     if strs.isEmpty then return ""
     if strs.length == 1 then return strs(0)
@@ -10,6 +13,21 @@ object LongestCommonPrefix {
     while i < minLength && strs.forall(_(i) == strs(0)(i)) do i += 1
 
     strs(0).substring(0, i)
+  }
+
+  /** Sort the array and compare the first and last element
+    */
+  def longestCommonPrefix2(strs: Array[String]): String = {
+    if strs.isEmpty then return ""
+    if strs.length == 1 then return strs(0)
+
+    val sortedStrs = strs.sorted
+    val first = sortedStrs(0)
+    val last = sortedStrs(sortedStrs.length - 1)
+    var i = 0
+    while i < first.length() && first(i) == last(i) do i += 1
+
+    first.substring(0, i)
   }
 
   @main def runExample = {
@@ -25,6 +43,11 @@ object LongestCommonPrefix {
 
     for ((input, expected) <- testCases) {
       val result = longestCommonPrefix(input)
+      assert(result == expected)
+    }
+
+    for ((input, expected) <- testCases) {
+      val result = longestCommonPrefix2(input)
       assert(result == expected)
     }
   }
