@@ -1,0 +1,33 @@
+# .github/workflows/run-scala-scripts.yml
+name: Run
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+
+    - name: Install Scala CLI
+      run: |
+        curl -sSLf https://scala-cli.virtuslab.org/get | sh
+        echo $HOME/.local/share/coursier/bin >> $GITHUB_PATH
+
+    - name: Run Scala scripts
+      run: |
+        for script in *.scala; do
+          echo "Running $script"
+          scala-cli run "$script"
+        done
