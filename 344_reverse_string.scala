@@ -65,47 +65,47 @@ object ReverseString {
     }
   }
 
-  def main(args: Array[String]): Unit = {
-    val s1 = Array('h', 'e', 'l', 'l', 'o')
-    reverseString(s1)
-    assert(s1 sameElements Array('o', 'l', 'l', 'e', 'h'))
-    val s2 = Array('H', 'a', 'n', 'n', 'a', 'h')
-    reverseString(s2)
-    assert(s2 sameElements Array('h', 'a', 'n', 'n', 'a', 'H'))
+  @main def runReverseStringExample: Unit = {
+    val testCases = List(
+      Array('h', 'e', 'l', 'l', 'o') -> Array('o', 'l', 'l', 'e', 'h'),
+      Array('H', 'a', 'n', 'n', 'a', 'h') -> Array('h', 'a', 'n', 'n', 'a', 'H')
+    )
 
-    val s3 = Array('h', 'e', 'l', 'l', 'o')
-    reverseString2(s3)
-    assert(s3 sameElements Array('o', 'l', 'l', 'e', 'h'))
-    val s4 = Array('H', 'a', 'n', 'n', 'a', 'h')
-    reverseString2(s4)
-    assert(s4 sameElements Array('h', 'a', 'n', 'n', 'a', 'H'))
+    for ((input, expected) <- testCases) {
+      val s = input.clone()
+      reverseString(s)
+      assert(s sameElements expected)
+    }
 
-    val s5 = Array('h', 'e', 'l', 'l', 'o')
-    reverseStringUsingStack(s5)
-    assert(s5 sameElements Array('o', 'l', 'l', 'e', 'h'))
-    val s6 = Array('H', 'a', 'n', 'n', 'a', 'h')
-    reverseStringUsingStack(s6)
-    assert(s6 sameElements Array('h', 'a', 'n', 'n', 'a', 'H'))
+    for ((input, expected) <- testCases) {
+      val s = input.clone()
+      reverseString2(s)
+      assert(s sameElements expected)
+    }
 
-    val s7 = Array('h', 'e', 'l', 'l', 'o')
-    reverseStringUsingForLoop(s7)
-    assert(s7 sameElements Array('o', 'l', 'l', 'e', 'h'))
-    val s8 = Array('H', 'a', 'n', 'n', 'a', 'h')
-    reverseStringUsingForLoop(s8)
-    assert(s8 sameElements Array('h', 'a', 'n', 'n', 'a', 'H'))
+    for ((input, expected) <- testCases) {
+      val s = input.clone()
+      reverseStringUsingForLoop(s)
+      assert(s sameElements expected)
+    }
 
-    val s9 = Array('h', 'e', 'l', 'l', 'o')
-    reverseStringUsingRecursion(s9)
-    assert(s9 sameElements Array('o', 'l', 'l', 'e', 'h'))
-    val s10 = Array('H', 'a', 'n', 'n', 'a', 'h')
-    reverseStringUsingRecursion(s10)
-    assert(s10 sameElements Array('h', 'a', 'n', 'n', 'a', 'H'))
+    for ((input, expected) <- testCases) {
+      val s = input.clone()
+      reverseStringUsingRecursion(s)
+      assert(s sameElements expected)
+    }
+
+    for ((input, expected) <- testCases) {
+      val s = input.clone()
+      reverseStringUsingStack(s)
+      assert(s sameElements expected)
+    }
   }
 
 }
 
 /** Summary:
-  * 1. the recursion solution is the best submission result
-  * 2. the stack solution is easy to understand but not efficient
-  * 3. Scala has a built-in method: s.reverse which returns a new reversed string
+  *   1. the recursion solution is the best submission result 2. the stack
+  *      solution is easy to understand but not efficient 3. Scala has a
+  *      built-in method: s.reverse which returns a new reversed string
   */
