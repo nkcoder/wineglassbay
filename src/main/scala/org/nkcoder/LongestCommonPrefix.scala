@@ -1,3 +1,5 @@
+package org.nkcoder
+
 // https://leetcode.com/problems/longest-common-prefix
 
 object LongestCommonPrefix {

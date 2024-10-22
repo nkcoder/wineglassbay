@@ -1,6 +1,8 @@
+package org.nkcoder
+
 // https://leetcode.com/problems/length-of-last-word
 
-/** Run: scala-cli run 58_length_of_last_word.scala
+/** Run: scala-cli run LengthOfLastWord.scala
   */
 object LengthOfLastWord {
   // scan from the beginning

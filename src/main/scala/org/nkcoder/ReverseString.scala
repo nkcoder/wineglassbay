@@ -1,7 +1,9 @@
+package org.nkcoder
+
 // https://leetcode.com/problems/reverse-string
 import scala.annotation.tailrec
 
-/** Run: scala-cli run 344_reverse_string.scala
+/** Run: scala-cli run ReverseString.scala
   */
 object ReverseString {
   // use two pointers: O(n) time and O(1) space
@@ -64,45 +66,9 @@ object ReverseString {
       s(i) = stack.pop()
     }
   }
-
-  @main def runReverseStringExample: Unit = {
-    val testCases = List(
-      Array('h', 'e', 'l', 'l', 'o') -> Array('o', 'l', 'l', 'e', 'h'),
-      Array('H', 'a', 'n', 'n', 'a', 'h') -> Array('h', 'a', 'n', 'n', 'a', 'H')
-    )
-
-    for ((input, expected) <- testCases) {
-      val s = input.clone()
-      reverseString(s)
-      assert(s sameElements expected)
-    }
-
-    for ((input, expected) <- testCases) {
-      val s = input.clone()
-      reverseString2(s)
-      assert(s sameElements expected)
-    }
-
-    for ((input, expected) <- testCases) {
-      val s = input.clone()
-      reverseStringUsingForLoop(s)
-      assert(s sameElements expected)
-    }
-
-    for ((input, expected) <- testCases) {
-      val s = input.clone()
-      reverseStringUsingRecursion(s)
-      assert(s sameElements expected)
-    }
-
-    for ((input, expected) <- testCases) {
-      val s = input.clone()
-      reverseStringUsingStack(s)
-      assert(s sameElements expected)
-    }
-  }
-
 }
+
+
 
 /** Summary:
   *   1. the recursion solution is the best submission result 2. the stack
