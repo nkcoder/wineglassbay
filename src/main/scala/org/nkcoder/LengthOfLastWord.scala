@@ -53,33 +53,4 @@ object LengthOfLastWord {
   def lengthOfLastWord4(s: String): Int = {
     s.trim.split(" ").reverse.head.length
   }
-
-  @main def runLengthOfLastWordExample: Unit = {
-
-    val testCases = List(
-      "Hello World" -> 5,
-      "   fly me   to   the moon  " -> 4,
-      "luffy is still joyboy" -> 6
-    )
-
-    for ((input, expected) <- testCases) {
-      val result = lengthOfLastWord(input)
-      assert(result == expected)
-    }
-
-    for ((input, expected) <- testCases) {
-      val result = lengthOfLastWord2(input)
-      assert(result == expected)
-    }
-
-    for ((input, expected) <- testCases) {
-      val result = lengthOfLastWord3(input)
-      assert(result == expected)
-    }
-
-    for ((input, expected) <- testCases) {
-      val result = lengthOfLastWord4(input)
-      assert(result == expected)
-    }
-  }
 }
