@@ -37,37 +37,11 @@ object LongestCommonPrefix {
   def longestCommonPrefixByTranspose(strs: Array[String]): String = {
     val minLength = strs.map(_.length).min
     strs
-      .map(_.toCharArray().take(minLength))
+      .map(_.toCharArray.take(minLength))
       .transpose
-      .takeWhile(_.distinct.size == 1)
+      .takeWhile(_.distinct.length == 1)
       .map(_.head)
       .mkString
   }
 
-  @main def runLongestCommonPrefixExample = {
-    val testCases = List(
-      Array("flower", "flow", "flight") -> "fl",
-      Array("dog", "racecar", "car") -> "",
-      Array("a") -> "a",
-      Array("a", "a") -> "a",
-      Array("a", "b") -> "",
-      Array("ab", "a") -> "a",
-      Array("interspecies", "interstellar", "interstate") -> "inters"
-    )
-
-    for ((input, expected) <- testCases) {
-      val result = longestCommonPrefix(input)
-      assert(result == expected)
-    }
-
-    for ((input, expected) <- testCases) {
-      val result = longestCommonPrefix2(input)
-      assert(result == expected)
-    }
-
-    for ((input, expected) <- testCases) {
-      val result = longestCommonPrefixByTranspose(input)
-      assert(result == expected)
-    }
-  }
 }
