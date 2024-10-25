@@ -26,7 +26,7 @@ object LengthOfLastWord {
         }
       }
     }
-    return count;
+    count;
   }
 
   // scan from the end
@@ -43,7 +43,7 @@ object LengthOfLastWord {
       i -= 1;
     }
 
-    return count;
+    count;
   }
 
   def lengthOfLastWord3(s: String): Int = {
