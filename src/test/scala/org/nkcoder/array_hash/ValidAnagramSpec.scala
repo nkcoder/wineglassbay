@@ -19,7 +19,7 @@ class ValidAnagramSpec extends AnyFlatSpec with should.Matchers {
 
   "validAnagram3" should "return true if t is an anagram of s, false otherwise" in {
     for (((s, t), expect) <- testCases)
-      ValidAnagram.validAnagram3(s, t) should be(expect)
+      ValidAnagram.validAnagram(s, t) should be(expect)
   }
 
 }
