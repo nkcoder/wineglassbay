@@ -22,12 +22,11 @@ jobs:
 
     - name: Install Scala CLI
       run: |
-        curl -sSLf https://scala-cli.virtuslab.org/get | sh
-        echo $HOME/.local/share/coursier/bin >> $GITHUB_PATH
+        curl -L -o sbt.zip https://github.com/sbt/sbt/releases/download/v1.8.0/sbt-1.8.0.zip
+        unzip sbt.zip -d ~/sbt
+        export PATH=~/sbt/sbt/bin:$PATH
+        sbt sbtVersion
 
-    - name: Run Scala scripts
+    - name: Compile and test
       run: |
-        for script in *.scala; do
-          echo "Running $script"
-          scala-cli run "$script"
-        done
+        sbt clean compile test
