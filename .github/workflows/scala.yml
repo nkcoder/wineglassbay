@@ -20,7 +20,7 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
-    - name: Install Scala CLI
+    - name: Install sbt
       run: |
         curl -L -o sbt.zip https://github.com/sbt/sbt/releases/download/v1.8.0/sbt-1.8.0.zip
         unzip sbt.zip -d ~/sbt
