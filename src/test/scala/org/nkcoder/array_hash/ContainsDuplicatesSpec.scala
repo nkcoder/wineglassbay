@@ -17,4 +17,14 @@ class ContainsDuplicatesSpec extends AnyFlatSpec with should.Matchers {
       containsDuplicates(input) should be(expect)
   }
 
+  "containsDuplicates2" should "return true if there are any duplicates, false otherwise" in {
+    for ((input, expect) <- testCases)
+      ContainsDuplicates.containsDuplicates2(input) should be(expect)
+  }
+
+  "containsDuplicates3" should "return true if there are any duplicates, false otherwise" in {
+    for ((input, expect) <- testCases)
+      ContainsDuplicates.containsDuplicates3(input) should be(expect)
+  }
+
 }
