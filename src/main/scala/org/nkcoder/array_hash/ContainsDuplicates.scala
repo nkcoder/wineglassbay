@@ -3,7 +3,7 @@ package org.nkcoder.array_hash
 import scala.collection.mutable
 import scala.util.control.Breaks.{break, breakable}
 
-/** https://leetcode.com/problems/contains-duplicate Easy
+/** Easy: https://leetcode.com/problems/contains-duplicate
   *
   *   - brute force: T-O(n2), S-O(1)
   *   - sort, then compare adjacent elements: T-O(nlog(n), S-O(1)
